@@ -5,21 +5,21 @@ import java.util.Map;
 
 public class GetProductsRequest {
 
-	private String categoryId;
+	private long categoryId;
 
 	private Map<String, List<String>> facetsMap;
 
-	public GetProductsRequest(String categoryId, Map<String, List<String>> facetsMap) {
+	public GetProductsRequest(long categoryId, Map<String, List<String>> facetsMap) {
 		super();
 		this.categoryId = categoryId;
 		this.facetsMap = facetsMap;
 	}
 
-	public String getCategoryId() {
+	public long getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(String categoryId) {
+	public void setCategoryId(long categoryId) {
 		this.categoryId = categoryId;
 	}
 

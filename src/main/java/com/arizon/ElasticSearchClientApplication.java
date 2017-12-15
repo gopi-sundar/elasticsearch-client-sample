@@ -22,7 +22,7 @@ public class ElasticSearchClientApplication {
 
 		ElasticSearchClient elasticSearchClient = applicationContext.getBean(ElasticSearchClient.class);
 
-		String categoryId = "145";
+		long categoryId = 145;
 
 		Map<String, List<String>> facetsMap = new HashMap<String, List<String>>();
 		List<String> materialValues = new ArrayList<String>();
@@ -44,14 +44,15 @@ public class ElasticSearchClientApplication {
 		// Query 1
 		runGetProducts(elasticSearchClient, new GetProductsRequest(categoryId, facetsMap));
 
-		categoryId = "145";
-
-		facetsMap.clear();
-		facetsMap.put("Material", materialValues);
-		facetsMap.put("Color", colorValues);
-
-		// Query 2
-		runGetProducts(elasticSearchClient, new GetProductsRequest(categoryId, facetsMap));
+		// categoryId = "145";
+		//
+		// facetsMap.clear();
+		// facetsMap.put("Material", materialValues);
+		// facetsMap.put("Color", colorValues);
+		//
+		// // Query 2
+		// runGetProducts(elasticSearchClient, new GetProductsRequest(categoryId,
+		// facetsMap));
 
 	}
 

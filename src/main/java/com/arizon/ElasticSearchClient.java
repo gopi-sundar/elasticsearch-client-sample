@@ -153,7 +153,7 @@ public class ElasticSearchClient {
 
 		// Build the category_id query
 		NestedQueryBuilder query = QueryBuilders.nestedQuery(F_CATEGORIES,
-				QueryBuilders.matchQuery(F_CATEGORY_ID, request.getCategoryId()), ScoreMode.Avg);
+				QueryBuilders.termQuery(F_CATEGORY_ID, request.getCategoryId()), ScoreMode.Avg);
 		searchSourceBuilder.query(query);
 
 		// Build the postFilter
@@ -236,7 +236,7 @@ public class ElasticSearchClient {
 			if (sourceImages != null) {
 				sourceImages.forEach(map -> {
 					ProductImageDO productImageDO = new ProductImageDO();
-					// productImageDO.setId(Integer.valueOf((String) map.get(F_SHOPIFY_ID)));
+					productImageDO.setId((Integer) map.get(F_ID));
 					productImageDO.setIsThumbnail("Y".equals(((String) map.get(F_USE_AS_THUMBNAIL))) ? true : false);
 					if (productImageDO.getIsThumbnail()) {
 						productImageDO.setThumbnailUrl((String) map.get(F_WEB_URL));
